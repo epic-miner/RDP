@@ -1,5 +1,4 @@
 #!/bin/bash
-sudo apt update
 
 # Set default values
 username="user"
