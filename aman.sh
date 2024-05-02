@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo apt update
 
 # Set default values
 username="user"
@@ -50,5 +51,6 @@ sudo systemctl disable lightdm.service
 echo | sudo add-apt-repository ppa:mozillateam/ppa
 sudo apt update
 sudo apt install firefox-esr -y
+sudo apt-get install --fix-broken -y
 
 log "Installation completed successfully"
