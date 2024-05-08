@@ -46,10 +46,11 @@ sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome
 log "Disabling lightdm service"
 sudo systemctl disable lightdm.service
 
-#install firefox-esr
-echo | sudo add-apt-repository ppa:mozillateam/ppa
-sudo apt update
-sudo apt install firefox-esr -y
-sudo apt-get install --fix-broken -y
+# Install Firefox ESR
+log "Installing Firefox ESR"
+echo | sudo add-apt-repository ppa:mozillateam/ppa || { log "Failed to add Firefox ESR repository"; exit 1; }
+sudo apt update || { log "Failed to update package lists"; exit 1; }
+sudo apt install firefox-esr -y || { log "Failed to install Firefox ESR"; exit 1; }
+sudo apt-get install --fix-broken -y || { log "Failed to fix broken dependencies after Firefox ESR installation"; exit 1; }
 
 log "Installation completed successfully"
