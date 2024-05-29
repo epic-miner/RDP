@@ -47,10 +47,5 @@ log "Disabling lightdm service"
 sudo systemctl disable lightdm.service
 
 # Install Firefox ESR
-log "Installing Firefox ESR"
-echo | sudo add-apt-repository ppa:mozillateam/ppa || { log "Failed to add Firefox ESR repository"; exit 1; }
-sudo apt update || { log "Failed to update package lists"; exit 1; }
-sudo apt install firefox-esr -y || { log "Failed to install Firefox ESR"; exit 1; }
-sudo apt-get install --fix-broken -y || { log "Failed to fix broken dependencies after Firefox ESR installation"; exit 1; }
-
+sudo apt install firefox-esr
 log "Installation completed successfully"
