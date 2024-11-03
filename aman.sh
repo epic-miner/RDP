@@ -48,5 +48,8 @@ sudo systemctl disable lightdm.service
 
 # Install Firefox ESR
 sudo apt update
-sudo apt install firefox
+sudo add-apt-repository ppa:mozillateam/ppa
+sudo apt update
+sudo apt install firefox-esr -y
+
 log "Installation completed successfully"
